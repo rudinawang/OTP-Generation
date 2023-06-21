@@ -10,7 +10,7 @@ const routes = require("./routes");
 
 const app = express();
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set("view engine", "ejs");
@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1", routes);
 

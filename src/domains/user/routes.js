@@ -13,24 +13,24 @@ router.get("/private_data", auth, (req, res) => {
     .send(`You're in the private territory of ${req.currentUser.email}`);
 });
 
-//Signin
-router.post("/", async (req, res) => {
-  try {
-    let { email, password } = req.body;
-    email = email.trim();
-    password = password.trim();
+// //Signin
+// router.post("/", async (req, res) => {
+//   try {
+//     let { email, password } = req.body;
+//     email = email.trim();
+//     password = password.trim();
 
-    if (!(email && password)) {
-      throw Error("Empty Credential supplied");
-    }
+//     if (!(email && password)) {
+//       throw Error("Empty Credential supplied");
+//     }
 
-    const authenticatedUser = await authenticateUser({ email, password });
+//     const authenticatedUser = await authenticateUser({ email, password });
 
-    res.status(200).json(authenticatedUser);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
+//     res.status(200).json(authenticatedUser);
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// });
 
 // Signup
 router.post("/signup", async (req, res) => {
